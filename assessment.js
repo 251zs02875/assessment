@@ -24,6 +24,32 @@ assessmentButton.addEventListener( // イベント検知
     }
     // TODO 診断結果表示エリアの作成
     resultDivision.innerText = '';
+    
+    // headerDivision の作成
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class', 'card-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
+
+    // bodyDivision の作成
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class', 'card-body');
+
+    const paragraph = document.createElement('p'); //pタグの作成
+    paragraph.setAttribute('class', 'card-text');
+    const result = assessment(userName);
+    paragraph.innerText = result;
+    bodyDivision.appendChild(paragraph);
+
+
+    // resultDivision に bootstrap のスタイルを適用する
+    resultDivision.setAttribute('class', 'card');
+    
+    // headerDivision と bodyDivision を resuilDivision に差し込む
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
+
+
+    /**
     const header = document.createElement('h3'); // h3タグの作成
     header.innerText = '診断結果'; // タグの内側のテキストを設定
     resultDivision.appendChild(header);
@@ -32,7 +58,7 @@ assessmentButton.addEventListener( // イベント検知
     const result = assessment(userName);
     paragraph.innerText = result;
     resultDivision.appendChild(paragraph);
-
+    **/
     tweetDivision.innerText = '';
     const anchor = document.createElement('a');
     const hrefValue =
@@ -45,6 +71,7 @@ assessmentButton.addEventListener( // イベント検知
 
     tweetDivision.appendChild(anchor);
 
+    // ツイートエリアの作成
     const script = document.createElement('script');
     script.setAttribute('src','https://platform.x.com/widgets.js');
     tweetDivision.appendChild(script);
@@ -54,7 +81,7 @@ assessmentButton.addEventListener( // イベント検知
     console.log(userName.length);
     console.log(assessment(userName));
 
-    // ツイートエリアの作成
+
 
   }
 )
